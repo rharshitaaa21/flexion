@@ -63,13 +63,27 @@
               <li><a href="#">View Profile</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="{% url 'signup' %}">Sign Up</a></li>
+          <li>
+            {% if not request.user.is_authenticated %}
+                <a class="nav-link scrollto" href="{% url 'signup' %}">Sign Up</a>
+            {% else %}
+                <a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a>
+                {% comment %} <a href="#" class="get-started-btn scrollto">Welcome</a> {% endcomment %}
+            {% endif %}
+        </li>
         </ul>
+
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="/achievements" class="get-started-btn scrollto">Awards</a>
 
+      {% if not request.user.is_authenticated %}
+      <a href="/achievements" class="get-started-btn scrollto">Gym Awards</a>
+      {% else %}
+      <a href="#" class="get-started-btn scrollto">Welcome</a>
+      {% endif %}
+      
+      
     </div>
   </header><!-- End Header -->
 

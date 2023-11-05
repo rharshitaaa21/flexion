@@ -35,7 +35,6 @@ def user_login(request):
         pass1 = request.POST['pass1']
         myUser = authenticate(username=username, password=pass1)
         print(myUser)
-
         if myUser is not None:
             login(request, myUser)
             messages.success(request, "Login Successful")
@@ -45,3 +44,9 @@ def user_login(request):
             return redirect('login')
 
     return render(request, "login.html")
+
+
+def user_logout(request):
+    logout(request)
+    messages.success(request, "Logout Successful")
+    return redirect('login')
