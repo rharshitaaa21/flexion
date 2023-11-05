@@ -24,12 +24,12 @@ Login
     {% endfor %}
     
     
-    <form action="signup" method="post">{% csrf_token %}
+    <form action="login" method="post">{% csrf_token %}
        
 
     
         <div class="form-group">
-            <input type="number" class="form-control mb-2" name="usernumber" placeholder="Phone Number" required>
+            <input type="email" class="form-control mb-2" name="email" placeholder="Email Address" required>
             </div>
 
 
@@ -37,11 +37,11 @@ Login
     <div class="form-group">
     <input type="password" class="form-control mt-2" name="pass1" placeholder="Password" required>
     </div>
-    
+
     <br>
     
     <div class="d-grid gap-2">
-      <button class="btn btn-light" type="submit">Signup</button>
+      <button class="btn btn-light" type="submit">Login</button>
     
     </div>
     
