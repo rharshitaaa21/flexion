@@ -1,8 +1,7 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
-
+from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def Home(request):
     return render(request, "index.html")
@@ -32,9 +31,10 @@ def signup(request):
 
 def user_login(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['pass1']
-        myUser = authenticate(request, email=email, pass1=password)
+        username = request.POST['usernumber']
+        pass1 = request.POST['pass1']
+        myUser = authenticate(username=username, password=pass1)
+        print(myUser)
 
         if myUser is not None:
             login(request, myUser)
