@@ -17,7 +17,6 @@ class Enrollment(models.Model):
     FullName=models.CharField(max_length=25)
     Email=models.EmailField()
     gender = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')), default='M')
-
     PhoneNumber=models.CharField(max_length=12)
     DOB=models.CharField(max_length=50)
     SelectMembershipplan=models.CharField(max_length=200)
@@ -25,7 +24,7 @@ class Enrollment(models.Model):
     Reference=models.CharField(max_length=55)
     Address=models.TextField()
     paymentStatus=models.CharField(max_length=55,blank=True,null=True)
-    Price=models.IntegerField()
+    Price=models.IntegerField(default=0)
     DueDate=models.DateTimeField(blank=True,null=True)
     joiningDate=models.DateTimeField(auto_now_add=True,blank=True,)
 
