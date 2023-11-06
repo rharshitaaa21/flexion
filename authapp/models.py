@@ -11,3 +11,44 @@ class Contact(models.Model):
     def __str__(self):
         return f"{self.name} {self.email}"
     
+
+class Enrollment(models.Model):   
+         
+    FullName=models.CharField(max_length=25)
+    Email=models.EmailField()
+    gender = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')), default='M')
+
+    PhoneNumber=models.CharField(max_length=12)
+    DOB=models.CharField(max_length=50)
+    SelectMembershipplan=models.CharField(max_length=200)
+    SelectTrainer=models.CharField(max_length=55)
+    Reference=models.CharField(max_length=55)
+    Address=models.TextField()
+    paymentStatus=models.CharField(max_length=55,blank=True,null=True)
+    Price=models.IntegerField()
+    DueDate=models.DateTimeField(blank=True,null=True)
+    joiningDate=models.DateTimeField(auto_now_add=True,blank=True,)
+
+    def __str__(self):
+        return f"{self.FullName}{self.Email}{self.PhoneNumber}{self.SelectMembershipplan} {self.SelectTrainer}"
+    
+
+class Trainer(models.Model):
+    
+    name=models.CharField(max_length=55)
+    gender = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')), default='M')
+
+    phone=models.CharField(max_length=25)   
+    salary=models.IntegerField()
+    joiningDate=models.DateTimeField(auto_now_add=True,blank=True)
+
+    def __str__(self):
+        return f"{self.name}{self.phone}{self.salary}{self.joiningDate}"
+    
+
+class MembershipPlan(models.Model):
+    plan=models.CharField(max_length=185)
+    price=models.IntegerField()
+
+    def __int__(self):
+        return f"{self.plan} {self.price}"

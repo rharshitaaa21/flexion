@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
-from authapp.models import Contact
+from authapp.models import Contact, MembershipPlan, Trainer
 # Create your views here.
 def Home(request):
     return render(request, "index.html")
@@ -67,3 +67,10 @@ def contact(request):
 
     else:
         return render(request, "contact.html")
+    
+
+def enroll(request):
+    Membership= MembershipPlan.objects.all()
+    SelectTrainer = Trainer.objects.all()
+    context = {"Membership": Membership, "SelectTrainer": SelectTrainer,}
+    return render(request, "enroll.html", context)
