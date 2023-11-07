@@ -134,3 +134,10 @@ def attendence(request):
     
     return render(request, "attendence.html", context)
 
+
+
+def about(request):
+    return render( request,'about.html')
+
+def services(request):
+    return render(request, "services.html")
