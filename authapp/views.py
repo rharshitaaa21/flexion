@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
-from authapp.models import Contact, MembershipPlan, Trainer, Enrollment,Gallery
+from authapp.models import Contact, MembershipPlan, Trainer, Enrollment,Gallery, Attendence
 # Create your views here.
 def Home(request):
     return render(request, "index.html")
@@ -110,3 +110,27 @@ def gallery(request):
     posts = Gallery.objects.all()
     context = {"posts":posts}
     return render(request, "gallery.html", context)
+
+
+def attendence(request):
+    if not request.user.is_authenticated:
+        messages.warning(request,"You need to Login first")
+        return redirect('login')
+    select_trainer= Trainer.objects.all()
+    context = {"select_trainer":select_trainer}
+
+    if request.method == 'POST':
+        phonenumber = request.POST['phonenumber']
+        login_time = request.POST['login_time']
+        logout_time = request.POST['logout_time']
+        # select_date = request.POST['select_date']
+        workout = request.POST['workout']
+        trainedBy = request.POST['trainedBy']
+    # print(select_trainer)
+        query = Attendence(phonenumber = phonenumber, login_time= login_time, logout_time = logout_time, workout = workout, trainedBy = trainedBy   )
+        query.save()
+        messages.success(request, "Your attendence has been marked!")
+        return redirect('attendence')
+    
+    return render(request, "attendence.html", context)
+

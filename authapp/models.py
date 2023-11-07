@@ -62,3 +62,21 @@ class Gallery (models.Model):
     def __str__(self):
         return f"{self.title}"
     
+
+class Attendence(models.Model):
+    phonenumber = models.CharField(max_length=15)
+    select_date = models.DateTimeField(auto_now_add=True)
+    login_time = models.CharField(max_length=100)
+    logout_time = models.CharField(max_length=100)
+    
+    workout = models.CharField(max_length=10, choices=( ('biceps', 'Biceps'),
+        ('core', 'Core'),
+        ('legs', 'Legs'),
+        ('shoulders', 'Shoulders'),
+        ('chest', 'Chest'),))
+    trainedBy = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f" {self.phonenumber}{self.trainedBy}{self.select_date}{self.login_time}{self.logout_time}"
+    
+    

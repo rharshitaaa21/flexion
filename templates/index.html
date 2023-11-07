@@ -56,16 +56,19 @@
           <li class="dropdown"><a href="/"><span>Memberships</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="enroll">Enroll</a></li>
-              <li><a href="#">Workouts</a></li>
-              <li><a href="#">Tracker</a></li>
+
+              <li><a href="attendence">Attendence</a></li>
+
               <li><a href="profile">View Profile</a></li>
             </ul>
           </li>
           <li>
             {% if not request.user.is_authenticated %}
                 <a class="nav-link scrollto" href="{% url 'signup' %}">Sign Up</a>
+
             {% else %}
                 <a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a>
+              
                 {% comment %} <a href="#" class="get-started-btn scrollto">Welcome</a> {% endcomment %}
             {% endif %}
         </li>
