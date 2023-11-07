@@ -95,4 +95,12 @@ def enroll(request):
 
 
 def profile(request):
-    return render(request, "profile.html")
+    if not request.user.is_authenticated:
+        messages.warning(request,"You need to Login first")
+        return redirect('login')
+    user_phone = request.user
+    posts=Enrollment.objects.filter(PhoneNumber = user_phone)
+    print(posts)
+    context={"posts":posts}
+    
+    return render(request, "profile.html",context)
