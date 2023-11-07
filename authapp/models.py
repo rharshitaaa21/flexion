@@ -51,3 +51,14 @@ class MembershipPlan(models.Model):
 
     def __int__(self):
         return f"{self.plan} {self.price}"
+    
+
+
+class Gallery (models.Model):
+    title = models.CharField(max_length=100)
+    addedtime = models.DateTimeField(auto_now_add=True, blank= False)
+    img = models.ImageField(upload_to='gallery')
+
+    def __str__(self):
+        return f"{self.title}"
+    

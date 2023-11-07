@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
-from authapp.models import Contact, MembershipPlan, Trainer, Enrollment
+from authapp.models import Contact, MembershipPlan, Trainer, Enrollment,Gallery
 # Create your views here.
 def Home(request):
     return render(request, "index.html")
@@ -100,7 +100,13 @@ def profile(request):
         return redirect('login')
     user_phone = request.user
     posts=Enrollment.objects.filter(PhoneNumber = user_phone)
-    print(posts)
+    # print(posts)
     context={"posts":posts}
     
     return render(request, "profile.html",context)
+
+
+def gallery(request):
+    posts = Gallery.objects.all()
+    context = {"posts":posts}
+    return render(request, "gallery.html", context)

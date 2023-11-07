@@ -3,7 +3,16 @@
 Profile
 {% endblock title %}
 {% block content %}
+{% comment %} <style>
+    .list-group-item {
+        font-size: 18px;
+    }
 
+    .scrollable-container {
+        max-height: 500px;  
+        overflow-y: auto;  
+    }
+</style> {% endcomment %}
 <h1>Enrollment Details</h1>
 
 
@@ -11,24 +20,25 @@ Profile
 
     <div class="row">
         {% for post in posts  %}
-    
+        {% comment %} <div class="scrollable-container"> {% endcomment %}
         <ul class="list-group">
-            <li class="list-group bg-warning text-dark">Name : {{post.FullName}}</li>
-            <li class="list-group bg-warning text-dark">Email : {{post.Email}}</li>
-            <li class="list-group bg-warning text-dark">Gender : {{post.gender}}</li>
-            <li class="list-group bg-warning text-dark">PhoneNumber : {{post.PhoneNumber}}</li>
-            <li class="list-group bg-warning text-dark">DOB : {{post.DOB}}</li>
-            <li class="list-group bg-warning text-dark">Membership plan : {{post.SelectMembershipplan}}</li>
-            <li class="list-group bg-warning text-dark">Trainer : {{post.SelectTrainer}}</li>
-            <li class="list-group bg-warning text-dark">Reference : {{post.Reference}}</li>
-        <li class="list-group bg-warning text-dark">Address : {{post.Address}}</li>
-        <li class="list-group bg-warning text-dark">Payment Status : {{post.paymentStatus}}</li>
-        <li class="list-group bg-warning text-dark">Amount Paid : {{post.Price}}</li>
-        <li class="list-group bg-warning text-dark">Upcoming Due Date : {{post.DueDate}}</li>
-        <li class="list-group bg-warning text-dark">Joining date : {{post.joiningDate}}</li>
+            <li class="list-group bg-light  fs-4 text-dark">Name :  {{post.FullName}} </li>
+            <li class="list-group bg-light fs-4  text-dark">Email : {{post.Email}}</li>
+            <li class="list-group bg-light fs-4  text-dark">Gender : {{post.gender}}</li>
+            <li class="list-group bg-light fs-4  text-dark">PhoneNumber : {{post.PhoneNumber}}</li>
+            <li class="list-group bg-light   fs-4 text-dark">DOB : {{post.DOB}}</li>
+            <li class="list-group bg-light fs-4  text-dark">Membership plan : {{post.SelectMembershipplan}}</li>
+            <li class="list-group bg-light fs-4  text-dark">Trainer : {{post.SelectTrainer}}</li>
+            <li class="list-group bg-light fs-4  text-dark">Reference : {{post.Reference}}</li>
+        <li class="list-group bg-light fs-4  text-dark">Address : {{post.Address}}</li>
+        <li class="list-group bg-light fs-4  text-dark">Payment Status : {{post.paymentStatus}}</li>
+        <li class="list-group bg-light fs-4  text-dark">Amount Paid : {{post.Price}}</li>
+        <li class="list-group bg-light fs-4  text-dark">Upcoming Due Date : {{post.DueDate}}</li>
+        <li class="list-group bg-light fs-4  text-dark">Joining date : {{post.joiningDate}}</li>
 
         
           </ul>
+        </div>
         {% endfor %}
     </div>
   
