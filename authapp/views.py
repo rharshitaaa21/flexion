@@ -92,3 +92,7 @@ def enroll(request):
         return redirect('enroll')
 
     return render(request, "enroll.html", context)
+
+
+def profile(request):
+    return render(request, "profile.html")
