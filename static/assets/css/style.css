@@ -125,6 +125,16 @@ h6 {
   padding: 15px 0;
 }
 
+/* #header.header-scrolled,
+*, ::after, ::before {
+  box-sizing: none;
+} */
+/* #header.header-scrolled {
+  background-color: #333;
+  color: #fff;
+  /* Add more styles as needed 
+} */
+
 #header.header-scrolled,
 #header.header-inner-pages {
   background: rgba(0, 0, 0, 0.8);

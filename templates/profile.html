@@ -19,27 +19,41 @@ Profile
 <div class="container">
 
     <div class="row">
-        {% for post in posts  %}
-        {% comment %} <div class="scrollable-container"> {% endcomment %}
-        <ul class="list-group">
-            <li class="list-group bg-light  fs-4 text-dark">Name :  {{post.FullName}} </li>
-            <li class="list-group bg-light fs-4  text-dark">Email : {{post.Email}}</li>
-            <li class="list-group bg-light fs-4  text-dark">Gender : {{post.gender}}</li>
-            <li class="list-group bg-light fs-4  text-dark">PhoneNumber : {{post.PhoneNumber}}</li>
-            <li class="list-group bg-light   fs-4 text-dark">DOB : {{post.DOB}}</li>
-            <li class="list-group bg-light fs-4  text-dark">Membership plan : {{post.SelectMembershipplan}}</li>
-            <li class="list-group bg-light fs-4  text-dark">Trainer : {{post.SelectTrainer}}</li>
-            <li class="list-group bg-light fs-4  text-dark">Reference : {{post.Reference}}</li>
-        <li class="list-group bg-light fs-4  text-dark">Address : {{post.Address}}</li>
-        <li class="list-group bg-light fs-4  text-dark">Payment Status : {{post.paymentStatus}}</li>
-        <li class="list-group bg-light fs-4  text-dark">Amount Paid : {{post.Price}}</li>
-        <li class="list-group bg-light fs-4  text-dark">Upcoming Due Date : {{post.DueDate}}</li>
-        <li class="list-group bg-light fs-4  text-dark">Joining date : {{post.joiningDate}}</li>
+        {% if posts  %}
 
-        
-          </ul>
+        {% for post in posts  %}
+        <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Your Profile</h5>
+              <p class="card-text"> <li class="list-group bg-light  fs-5 text-dark">Name :  {{post.FullName}} </li>
+                <li class="list-group bg-light fs-5  text-dark">Email : {{post.Email}}</li>
+                <li class="list-group bg-light fs-5  text-dark">Gender : {{post.gender}}</li>
+                <li class="list-group bg-light fs-5  text-dark">PhoneNumber : {{post.PhoneNumber}}</li>
+                <li class="list-group bg-light   fs-5 text-dark">DOB : {{post.DOB}}</li>
+                <li class="list-group bg-light fs-5  text-dark">Membership plan : {{post.SelectMembershipplan}}</li>
+                <li class="list-group bg-light fs-5  text-dark">Trainer : {{post.SelectTrainer}}</li>
+                <li class="list-group bg-light fs-5  text-dark">Reference : {{post.Reference}}</li>
+            <li class="list-group bg-light fs-5  text-dark">Address : {{post.Address}}</li>
+            <li class="list-group bg-light fs-5  text-dark">Payment Status : {{post.paymentStatus}}</li>
+            <li class="list-group bg-light fs-5  text-dark">Amount Paid : {{post.Price}}</li>
+            <li class="list-group bg-light fs-5  text-dark">Upcoming Due Date : {{post.DueDate}}</li>
+            <li class="list-group bg-light fs-5  text-dark">Joining date : {{post.joiningDate}}</li>
+        </p>
+
+            </div>
+            
+          </div>
+
         </div>
         {% endfor %}
+        {% else %}
+        <div class="card">
+            <div class="card-body">
+              You do not have any profile details because you have not enrolled for the program yet!
+            </div>
+          </div>
+    {% endif %}
+       
     </div>
   
 

@@ -100,7 +100,7 @@ def profile(request):
         return redirect('login')
     user_phone = request.user
     posts=Enrollment.objects.filter(PhoneNumber = user_phone)
-    # print(posts)
+    print(posts)
     context={"posts":posts}
     
     return render(request, "profile.html",context)
